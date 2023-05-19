@@ -16,6 +16,12 @@ Left: Zero-shot 3D shape classification on the Objaverse-LVIS (1,156 categories)
 If you find our code helpful, please cite our paper:
 
 ```
-@article{liu2023openshape
+@misc{liu2023openshape,
+      title={OpenShape: Scaling Up 3D Shape Representation Towards Open-World Understanding}, 
+      author={Minghua Liu and Ruoxi Shi and Kaiming Kuang and Yinhao Zhu and Xuanlin Li and Shizhong Han and Hong Cai and Fatih Porikli and Hao Su},
+      year={2023},
+      eprint={2305.10764},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
 }
 ```
