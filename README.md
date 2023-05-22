@@ -1,5 +1,5 @@
 # OpenShape: Scaling Up 3D Shape Representation Towards Open-World Understanding
- [\[project\]](https://colin97.github.io/OpenShape/) [\[paper\]]() 
+ [\[project\]](https://colin97.github.io/OpenShape/) [\[paper\]](https://arxiv.org/pdf/2305.10764.pdf) 
 
 
 Official code of "OpenShape: Scaling Up 3D Shape Representation Towards Open-World Understanding".
