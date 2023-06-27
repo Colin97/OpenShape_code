@@ -50,16 +50,46 @@ The default config can be found in `src/configs/train.yml`, which is trained on 
 
 ```
 python3 src/mian.py --trail_name spconv_all
-python3 src/main.py dataset.train_split=meta_data/split/train_no_lvis.json --trail_name spconv_no_lvis
-python3 src/main.py dataset.train_split=meta_data/split/ablation/train_shapenet_only.json --trail_name spconv_shapenet_only
-python3 src/main.py model.name=PointBERT model.scaling=4 model.use_dense=True training.lr=0.0005 training.lr_decay_rate=0.967 --trail_name pointbert_all
-python3 src/main.py model.name=PointBERT model.scaling=4 model.use_dense=True training.lr=0.0005 training.lr_decay_rate=0.967 dataset.train_split=meta_data/split/train_no_lvis.json --trail_name pointbert_no_lvis
-python3 src/main.py model.name=PointBERT model.scaling=4 model.use_dense=True training.lr=0.0005 training.lr_decay_rate=0.967 dataset.train_split=meta_data/split/ablation/train_shapenet_only.json --trail_name pointbert_shapenet_only
+python3 src/main.py --trail_name spconv_no_lvis dataset.train_split=meta_data/split/train_no_lvis.json 
+python3 src/main.py --trail_name spconv_shapenet_only dataset.train_split=meta_data/split/ablation/train_shapenet_only.json 
+python3 src/main.py --trail_name pointbert_all model.name=PointBERT model.scaling=4 model.use_dense=True training.lr=0.0005 training.lr_decay_rate=0.967 
+python3 src/main.py --trail_name pointbert_no_lvis model.name=PointBERT model.scaling=4 model.use_dense=True training.lr=0.0005 training.lr_decay_rate=0.967 dataset.train_split=meta_data/split/train_no_lvis.json 
+python3 src/main.py --trail_name pointbert_shapenet_only model.name=PointBERT model.scaling=4 model.use_dense=True training.lr=0.0005 training.lr_decay_rate=0.967 dataset.train_split=meta_data/split/ablation/train_shapenet_only.json 
 ```
 
-## Training and Evaluation Data 
+## Training and Meta Data 
 ### Training Data
-Training data includes 
+Training data consists of `Objaverse/000-xxx.tar.gz`, `ShapeNet.tar.gz`, `3D-FUTURE.tar.gz`, and `ABO.tar.gz`. After uncompression, you will get a numpy file for each shape, which includes:
+- `dataset`: str, dataset of the shape.
+- `group`: str, group of the shape.
+- `id`: str, id of the shape.
+- `xyz`: numpy array (10000 x 3, [-1,1]), point cloud of the shape.
+- `rgb`: numpy array (10000 x 3, [0, 1]), color of the point cloud.
+- `image_feat`: numpy array, image features of 12 rendered images. 
+- `thumbnail_feat`: numpy array, image feature for the thumbnail image. 
+- `text`: list of string, original texts of the shape, constructed using the metadata of the dataset.
+- `text_feat`: list of dict, text features of the `text`. "original" indicates the text feature without the prompt engineering. "prompt_avg" indicates the averaged text feature with the [template-based prompt enegineering](https://github.com/salesforce/ULIP/blob/main/data/templates.json). 
+- `blip_caption`: str, BLIP caption generated for the thumbnail or rendered images. 
+- `blip_caption_feat`: dict, text feature of the `blip_caption`.
+- `msft_caption`: str, Microsoft Azure caption generated for the thumbnail or rendered images.
+- `msft_caption_feat`: dict, text feature of the `msft_caption`.
+- `retrieval_text`: list of str, retrieved texts for the thumbnail or rendered images.
+- `retrieval_text_feat`: list of dict, text features of the `retrieval_text`. 
+
+All image and text features are extracted using OpenCLIP (ViT-bigG-14, laion2b_s39b_b160k).
+
+### Meta Data
+`meta_data.zip` includes the meta data used for training and evaluation (on Objaverse-LVIS, ModelNet40, and ScanObjectNN):
+- `split/`: list of training shapes. `train_all.json` indicates training with four datasets (Objaverse, ShapeNet, ABO, 3D-FUTURE). `train_no_lvis.json` indicates training with four datasets but Objaverse-LVIS shapes excluded. `ablation/train_shapenet_only.json` indeicates training with ShapeNet only.
+- `gpt4_filtering.json`: filtering results of Objaverse raw texts, generated with GPT4.
+- `point_feat_knn.npy`: KNN indices calculated using shape features, used for hard mining during training.
+- `modelnet40/test_split.json`: list of ModelNet40 test shapes.
+- `modelnet40/test_pc.npy`: point clouds of ModelNet40 test shapes, 10000 x 3.
+- `modelnet40/cat_name_pt_feat.npy`: text features of ModelNet40 category names, prompt engineering used.
+- `lvis_cat_name_pt_feat.npy`: text features of Objeverse-LVIS category names, prompt engineering used.
+- `scanobjectnn/xyz_label.npy`: point clouds and labels of ScanObjectNN test shapes.
+- `scanobjectnn/cat_name_pt_feat.npy`:text features of ScanObjectNN category names, prompt engineering used.
+All text features are extracted using OpenCLIP (ViT-bigG-14, laion2b_s39b_b160k).
 
 ## Citation
 
