@@ -1,0 +1,33 @@
+model:
+  NAME: BaseCls
+  encoder_args:
+    NAME: PointNextEncoder
+    blocks: [1, 4, 7, 4, 4, 1]
+    strides: [1, 4, 4, 2, 2, 1]
+    sa_layers: 1
+    sa_use_res: False 
+    width: 64 # can be even larger. 
+    in_channels: 7  # no heights, 1 miou worse
+    expansion: 4
+    # radius: 0.05  # better than other radius
+    radius: 0.15
+    radius_scaling: 1.5
+    nsample: 32 
+    aggr_args:
+      feature_type: 'dp_fj' 
+      reduction: 'max'
+    group_args:
+      NAME: 'ballquery'
+      normalize_dp: True
+    conv_args:
+      order: conv-norm-act
+    act_args:
+      act: 'relu'
+    norm_args:
+      norm: 'bn'
+  cls_args: 
+    NAME: ClsHead
+    num_classes: 40
+    mlps: [1024]
+    norm_args: 
+      norm: 'bn1d'
