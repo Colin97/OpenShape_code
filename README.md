@@ -55,7 +55,7 @@ Try the following example code for computing OpenShape embeddings of 3D point cl
 ```
 python3 src/example.py
 ```
-Please normalize the point cloud and ensure the gravity axis of the input point cloud is aligned with the pre-trained models.
+Please normalize the input point cloud and ensure the gravity axis of the point cloud is aligned with the pre-trained models.
 
 ## Training
 
@@ -80,7 +80,7 @@ python3 src/main.py --trail_name pointbert_all model.name=PointBERT model.scalin
 python3 src/main.py --trail_name pointbert_no_lvis model.name=PointBERT model.scaling=4 model.use_dense=True training.lr=0.0005 training.lr_decay_rate=0.967 dataset.train_split=meta_data/split/train_no_lvis.json 
 python3 src/main.py --trail_name pointbert_shapenet_only model.name=PointBERT model.scaling=4 model.use_dense=True training.lr=0.0005 training.lr_decay_rate=0.967 dataset.train_split=meta_data/split/ablation/train_shapenet_only.json 
 ```
-You can check the training and evaluation (Objaverse-LVIS and ModelNet40) curves on your wandb page.
+You can track the training and evaluation (Objaverse-LVIS and ModelNet40) curves on your wandb page.
 
 ## Data 
 All data can be found [here](https://huggingface.co/datasets/OpenShape/openshape-training-data). Use `python3 download_data.py` for downloading them.
