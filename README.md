@@ -10,11 +10,29 @@ Code is coming soon, stay tuned!
 ![avatar](demo/teaser.png)
 Left: Zero-shot 3D shape classification on the Objaverse-LVIS (1,156 categories) and ModelNet40 datasets (40 common categories). Right: Our shape representations encode a broad range of semantic and visual concepts. We input two 3D shapes and use their shape embeddings to retrieve the top three shapes whose embeddings are simultaneously closest to both inputs.
 
+
 ## Online Demo
 
 You can try the online [demo](https://huggingface.co/spaces/OpenShape/openshape-demo), which currently supports: (a) 3D shape classification (LVIS categories and user-uploaded texts), (b) 3D shape retrieval (from text, image, and 3D point clouds), (c) point cloud captioning, and (d) point cloud based image generation.
 
 The demo is built with [streamlit](https://streamlit.io). If you encounter "connection error", please try to clear your browser cache or use the incognito model. The code for the demo can be found from [here](https://huggingface.co/OpenShape/openshape-demo-support/tree/main) and [here](https://huggingface.co/spaces/OpenShape/openshape-demo/tree/main). 
+
+## Checkpoints
+
+| Model              |Training Data | CLIP version| Backbone | O-LVIS Top1 (Top5) | ModelNet40 Top1 (Top5) | gravity-axis | Notes |
+| :------:  | :------: | :------: |:------: |:------: | :------: |:------: |:------: |
+|[pointbert-vitg14-rgb](https://huggingface.co/OpenShape/openshape-pointbert-vitg14-rgb/tree/main)| Four datasets | OpenCLIP ViT-bigG-14 | PointBERT | ||z-axis|
+|| Four datasets (no LVIS) | OpenCLIP ViT-bigG-14 | PointBERT | ||z-axis|
+|| ShapeNet only | OpenCLIP ViT-bigG-14 | PointBERT | ||z-axis|
+|| Four datasets | OpenCLIP ViT-bigG-14 | SparseConv | ||z-axis|
+|| Four datasets (no LVIS) | OpenCLIP ViT-bigG-14 | SparseConv | ||z-axis|
+|| Four datasets (ShapeNet only) | OpenCLIP ViT-bigG-14 | SparseConv | ||z-axis|
+|[pointbert-vitl14-rgb](https://huggingface.co/OpenShape/openshape-pointbert-vitl14-rgb/tree/main)| ? | CLIP ViT-L/14 | PointBERT |N/A | N/A|y-axis|used for image generation demo?
+|[pointbert-vitb32-rgb](https://huggingface.co/OpenShape/openshape-pointbert-vitb32-rgb/tree/main)| ? | CLIP ViT-B/32 | PointBERT |N/A | N/A|y-axis|used for pc caption demo?
+
+
+
+
 
 ## Installation
 
@@ -32,6 +50,8 @@ conda install -c dglteam/label/cu113 dgl
 ```
 pip install huggingface_hub wandb omegaconf torch_redstone einops tqdm open3d 
 ```
+
+## Inference
 
 ## Training
 
@@ -57,7 +77,7 @@ python3 src/main.py --trail_name pointbert_no_lvis model.name=PointBERT model.sc
 python3 src/main.py --trail_name pointbert_shapenet_only model.name=PointBERT model.scaling=4 model.use_dense=True training.lr=0.0005 training.lr_decay_rate=0.967 dataset.train_split=meta_data/split/ablation/train_shapenet_only.json 
 ```
 
-## Training and Meta Data 
+## Data 
 ### Training Data
 Training data consists of `Objaverse/000-xxx.tar.gz`, `ShapeNet.tar.gz`, `3D-FUTURE.tar.gz`, and `ABO.tar.gz`. After uncompression, you will get a numpy file for each shape, which includes:
 - `dataset`: str, dataset of the shape.
