@@ -15,7 +15,9 @@ Left: Zero-shot 3D shape classification on the Objaverse-LVIS (1,156 categories)
 
 You can try the online [demo](https://huggingface.co/spaces/OpenShape/openshape-demo), which currently supports: (a) 3D shape classification (LVIS categories and user-uploaded texts), (b) 3D shape retrieval (from text, image, and 3D point clouds), (c) point cloud captioning, and (d) point cloud based image generation.
 
-The demo is built with [streamlit](https://streamlit.io). If you encounter "connection error", please try to clear your browser cache or use the incognito model. The code for the demo can be found from [here](https://huggingface.co/OpenShape/openshape-demo-support/tree/main) and [here](https://huggingface.co/spaces/OpenShape/openshape-demo/tree/main). 
+The demo is built with [streamlit](https://streamlit.io). If you encounter "connection error", please try to clear your browser cache or use the incognito model.
+
+The code for the demo can be found [here](https://huggingface.co/OpenShape/openshape-demo-support) and [here](https://huggingface.co/spaces/OpenShape/openshape-demo/tree/main). The support library [[README]](https://huggingface.co/OpenShape/openshape-demo-support) also serves as an inference library for models with PointBERT backbone.
 
 ## Checkpoints
 
