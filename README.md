@@ -26,7 +26,7 @@ The demo is built with [streamlit](https://streamlit.io). If you encounter "conn
 || ShapeNet only | OpenCLIP ViT-bigG-14 | PointBERT | ||z-axis|
 || Four datasets | OpenCLIP ViT-bigG-14 | SparseConv | ||z-axis|
 || Four datasets (no LVIS) | OpenCLIP ViT-bigG-14 | SparseConv | ||z-axis|
-|| Four datasets (ShapeNet only) | OpenCLIP ViT-bigG-14 | SparseConv | ||z-axis|
+|| ShapeNet only | OpenCLIP ViT-bigG-14 | SparseConv | ||z-axis|
 |[pointbert-vitl14-rgb](https://huggingface.co/OpenShape/openshape-pointbert-vitl14-rgb/tree/main)| ? | CLIP ViT-L/14 | PointBERT |N/A | N/A|y-axis|used for image generation demo?
 |[pointbert-vitb32-rgb](https://huggingface.co/OpenShape/openshape-pointbert-vitb32-rgb/tree/main)| ? | CLIP ViT-B/32 | PointBERT |N/A | N/A|y-axis|used for pc caption demo?
 
