@@ -51,6 +51,12 @@ pip install huggingface_hub wandb omegaconf torch_redstone einops tqdm open3d
 
 ## Inference
 
+Try the following example code for computing OpenShape embeddings of 3D point clouds and computing 3D-text and 3D-image similarities.
+```
+python3 src/example.py
+```
+Please normalize the point cloud and ensure the gravity axis of the input point cloud is aligned with the pre-trained models.
+
 ## Training
 
 1. The processed training and evaluation data can be found [here](https://huggingface.co/datasets/OpenShape/openshape-training-data). Download and uncompress the data by the following command:
