@@ -23,9 +23,9 @@ The code for the demo can be found [here](https://huggingface.co/OpenShape/opens
 
 | Model              | Training Data | CLIP version| Backbone | Objaverse-LVIS Top1 (Top5) | ModelNet40 Top1 (Top5) | gravity-axis | Notes |
 | :------:  | :------: | :------: |:------: |:------: | :------: |:------: |:------: |
-|[pointbert-vitg14-rgb](https://huggingface.co/OpenShape/openshape-pointbert-vitg14-rgb/tree/main)| Four datasets | OpenCLIP ViT-bigG-14 | PointBERT | ||z-axis|
-|| Four datasets (no LVIS) | OpenCLIP ViT-bigG-14 | PointBERT | ||z-axis|
-|| ShapeNet only | OpenCLIP ViT-bigG-14 | PointBERT | ||z-axis|
+|[pointbert-vitg14-rgb](https://huggingface.co/OpenShape/openshape-pointbert-vitg14-rgb/tree/main)| Four datasets | OpenCLIP ViT-bigG-14 | PointBERT | 46.8 (77.0) | 84.4 (98.0) |z-axis|
+|| Four datasets (no LVIS) | OpenCLIP ViT-bigG-14 | PointBERT | 39.1 (68.9) | 85.3 (97.4) |z-axis|
+|| ShapeNet only | OpenCLIP ViT-bigG-14 | PointBERT | 10.8 (25.0) | 70.3 (91.3) |z-axis|
 |[spconv-all](https://huggingface.co/OpenShape/openshape-spconv-all/tree/main)| Four datasets | OpenCLIP ViT-bigG-14 | SparseConv | 42.7 (72.8)| 83.7 (98.4)|z-axis|
 |[spconv-all-no-lvis](https://huggingface.co/OpenShape/openshape-all-no-lvis/tree/main)| Four datasets (no LVIS) | OpenCLIP ViT-bigG-14 | SparseConv | 38.1 (68.2)|84.0 (97.3)|z-axis|
 |[spconv-shapenet-only](https://huggingface.co/OpenShape/openshape-spconv-shapenet-only/tree/main)| ShapeNet only | OpenCLIP ViT-bigG-14 | SparseConv | 12.1 (27.1) |74.1 (89.5)|z-axis|
