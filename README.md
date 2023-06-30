@@ -73,7 +73,7 @@ python3 src/main.py dataset.train_batch_size=20 --trial_name bs_20
 The default config can be found in `src/configs/train.yml`, which is trained on a single A100 GPU. You can also change the setting by passing the arguments. Here are some examples for main experiments used in the paper:
 
 ```
-python3 src/mian.py --trail_name spconv_all
+python3 src/main.py --trail_name spconv_all
 python3 src/main.py --trail_name spconv_no_lvis dataset.train_split=meta_data/split/train_no_lvis.json 
 python3 src/main.py --trail_name spconv_shapenet_only dataset.train_split=meta_data/split/ablation/train_shapenet_only.json 
 python3 src/main.py --trail_name pointbert_all model.name=PointBERT model.scaling=4 model.use_dense=True training.lr=0.0005 training.lr_decay_rate=0.967 
