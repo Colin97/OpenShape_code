@@ -21,7 +21,7 @@ The code for the demo can be found [here](https://huggingface.co/OpenShape/opens
 
 ## Checkpoints
 
-| Model              | Training Data | CLIP version| Backbone | Objaverse-LVIS Top1 (Top5) | ModelNet40 Top1 (Top5) | gravity-axis | Notes |
+| Model              | Training Data | CLIP version| Backbone | Objaverse-LVIS Zero-Shot Top1 (Top5) | ModelNet40 Zero-Shot Top1 (Top5) | gravity-axis | Notes |
 | :------:  | :------: | :------: |:------: |:------: | :------: |:------: |:------: |
 |[pointbert-vitg14-rgb](https://huggingface.co/OpenShape/openshape-pointbert-vitg14-rgb/tree/main)| Four datasets | OpenCLIP ViT-bigG-14 | PointBERT | 46.8 (77.0) | 84.4 (98.0) |z-axis|
 |[pointbert-no-lvis](https://huggingface.co/OpenShape/openshape-pointbert-no-lvis/tree/main)| Four datasets (no LVIS) | OpenCLIP ViT-bigG-14 | PointBERT | 39.1 (68.9) | 85.3 (97.4) |z-axis|
