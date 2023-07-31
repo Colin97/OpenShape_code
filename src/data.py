@@ -45,13 +45,9 @@ class Four(Dataset):
         uid = meta["id"]
         data = np.load(meta['data_path'], allow_pickle=True).item()
         n = data['xyz'].shape[0]
-        if n != self.num_points:
-            idx = random.sample(range(n), self.num_points)
-            xyz = data['xyz'][idx]
-            rgb = data['rgb'][idx]
-        else:
-            xyz = data['xyz']
-            rgb = data['rgb']
+        idx = random.sample(range(n), self.num_points)
+        xyz = data['xyz'][idx]
+        rgb = data['rgb'][idx]
         
         if self.y_up:
             # swap y and z axis
