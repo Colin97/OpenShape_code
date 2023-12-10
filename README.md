@@ -1,6 +1,8 @@
 # OpenShape: Scaling Up 3D Shape Representation Towards Open-World Understanding
  [\[project\]](https://colin97.github.io/OpenShape/) [\[paper\]](https://arxiv.org/pdf/2305.10764.pdf)  [\[Live Demo\]](https://huggingface.co/spaces/OpenShape/openshape-demo) 
 
+[***News***] OpenShape is accepted by NeurIPS 2023. See you in New Orleans!
+
 [***News***] We have released our checkpoints, training code, and training data!
 
 [***News***] [Live demo](https://huggingface.co/spaces/OpenShape/openshape-demo) released! Thanks HuggingFace🤗 for sponsoring this demo!!
